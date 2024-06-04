@@ -1,0 +1,28 @@
+info:
+  app:
+    name: es-test
+    description: HDRE-測試es串接模組
+    version: RELEASE-20240129-1
+
+server:
+  port: 8080
+
+spring:
+  # Active Profile By ...
+  profiles:
+    active: local1
+    
+  application:
+    name: ${info.app.name}
+    
+  codec:
+    max-in-memory-size: 10MB
+    
+# =============================================
+# i18n
+# =============================================
+  messages:
+    basename: i18n/messages
+    encoding: UTF-8
+    cache-duration: 3600
+    fallbackToSystemLocale: true
