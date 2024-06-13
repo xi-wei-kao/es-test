@@ -47,6 +47,10 @@ dependencies {
 	
 	// [ Test UI: Swagger ]
 	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.2'
+	
+	// [ Utils: Quartz ]
+	implementation 'org.springframework.boot:spring-boot-starter-quartz'
+	
 }
 
 tasks.named('test') {

@@ -46,10 +46,43 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
 
-  # elasticsearch:
-    # uris: 127.0.0.1:9200
-    # connection-timeout: 20000ms
-    # username: ""
-    # password: ""
-    # username: elastic
-    # password: changeme
+  ## ==============================================================================
+  ## Quartz
+  ## ==============================================================================
+  quartz:
+    job-store-type: jdbc
+    jdbc:
+      initialize-schema: always
+      schema: classpath:db/tables_postgres.sql
+    properties:
+      org.quartz.jobStore.driverDelegateClass: org.quartz.impl.jdbcjobstore.PostgreSQLDelegate
+      
+#   properties:
+#     org:
+#       quartz:
+#         scheduler:
+#           instanceName: quartzScheduler
+#           skipUpdateCheck: true
+#         dataSource:
+#           quartzDataSource:
+#             driver: org.postgresql.Driver
+#             URL: jdbc:postgresql://localhost:5432/postgres?currentSchema=es-test
+#             user: postgres
+#             password: postgres
+#             maxConnections: 30
+#             provider: hikaricp
+#         jobStore:
+#           isClustered: false
+#           useProperties: false
+# #            class: org.springframework.scheduling.quartz.JobStoreCMT
+#           class: org.springframework.scheduling.quartz.LocalDataSourceJobStore
+#           driverDelegateClass: org.quartz.impl.jdbcjobstore.PostgreSQLDelegate
+# #            driverDelegateClass: org.quartz.impl.jdbcjobstore.StdJDBCDelegate
+#           dataSource: quartzDataSource
+#           tablePrefix: qrtz_
+#           misfireThreshold: 60000
+#         threadPool:
+#           class: org.quartz.simpl.SimpleThreadPool
+#           threadCount: 30
+#           threadPriority: 5
+#           threadsInheritContextClassLoaderOfInitializingThread: true
