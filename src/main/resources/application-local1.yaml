@@ -55,7 +55,10 @@ spring:
       initialize-schema: always
       schema: classpath:db/tables_postgres.sql
     properties:
-      org.quartz.jobStore.driverDelegateClass: org.quartz.impl.jdbcjobstore.PostgreSQLDelegate
+      org:
+        quartz:
+          jobStore:
+            driverDelegateClass: org.quartz.impl.jdbcjobstore.PostgreSQLDelegate
       
 #   properties:
 #     org:
